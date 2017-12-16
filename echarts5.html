@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style media="screen">
+    .box{width: 800px;height: 600px;border: 1px solid #000;margin: 0 auto;}
+  </style>
+  <script src="echarts.js" charset="utf-8"></script>
+  <script>
+  const $=document.querySelectorAll.bind(document);
+    window.onload=function(){
+      let oBox=$('.box')[0];
+
+      let option={
+        title:{
+          text:"北京人口数量",
+          subtext:'2017(单位:万)'
+        },
+        xAxis:[
+          {
+            type:'category',
+            data:['1月','1月','1月','1月','1月','1月','1月','1月','1月','1月','1月','1月']
+          }
+        ],
+        yAxis:[
+          {
+            type:'value'
+          }
+        ],
+        series:[
+          {
+            name:'男',
+            type:'bar',
+            data:[1352, 23, 1354, 1354, 1355, 1356, 1364, 1454, 1334, 1254, 1350, 754]
+          },
+          {
+            name:'女',
+            type:'bar',
+            data:[1245, 12, 1254, 1254, 1255, 1256, 1464, 1354, 1234, 1154, 1250, 454]
+          },{
+            name:'性别比例',
+            type:'pie',
+            radius:'50%',
+            data:[
+              {name:'男',value:2752},
+              {name:'女',value:1985},
+              {name:'其他',value:3}
+            ]
+          }
+        ]
+      };
+      let charts=echarts.init(oBox);
+      charts.setOption(option);
+    }
+  </script>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>
